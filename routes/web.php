@@ -24,10 +24,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-Route::get('/projects/{project}/bids/create', [BidController::class, 'create'])->name('bids.create');
-Route::post('/projects/(project}/bids', [BidController::class, 'store'])->name('bids.store');
+// Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+// Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+// Route::get('/projects/{project}/bids/create', [BidController::class, 'create'])->name('bids.create');
+// Route::post('/projects/(project}/bids', [BidController::class, 'store'])->name('bids.store');
+//JR bid CRUD without authentication:
+Route::get('/boss/{user}/projects', [ProjectController::class, 'bossProjects']); //for boss to check own projects
+Route::get('/projects', [ProjectController::class, 'index']); //to show available projects
+Route::get('/projects/{project}/bids', [BidController::class, 'showBids']); //for boss to view bids on the project id
+Route::get('/freelancer/{user}/bids', [BidController::class, 'freelancerBids'])->name('freelancer.bids'); //for freelancer to create new bid
+Route::post('/projects/{project}/bids', [BidController::class, 'store']); //submit the free lancer bid to the project
+Route::get('/bids/{bid}/edit', [BidController::class, 'edit']); //for freelancer to edit the submited bid
+Route::put('/bids/{bid}', [BidController::class, 'update']); //freelancer update the bid
+Route::post('/bids/{bid}/assign', [BidController::class, 'assign']); //for boss to direct assign bid to a freelancer id
 
 Route::get('/register', [UserController::class,'create'])->name('users.create');
 Route::post('/register', [UserController::class, 'store'])->name('users.store');
