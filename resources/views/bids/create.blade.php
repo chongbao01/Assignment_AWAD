@@ -17,6 +17,10 @@
         <strong>Bid Amount:</strong><br>
         <input type="number" name="amount" min="0" required>
     </label>
+    <label>
+        <strong>free lancer id:</strong>
+        <input type="text" name='freelancer_id' value={{auth()->user()->id}} disabled>
+    </label>
     <form action="{{ route('bids.store', $project->id) }}" method="POST">
         <button type='submit'> Submit bid</button>
     </form>
