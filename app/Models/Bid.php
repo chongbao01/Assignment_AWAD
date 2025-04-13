@@ -11,13 +11,24 @@ class Bid extends Model
         'freelancer_id',
         'bid_amount',
         'msg',
+        'status',
     ];
 
-    protected $guarded = [
-        'status',
-    ]; 
+    // protected $guarded = [
+    //     'status',
+    // ]; 
 
     protected $attributes = [
         'status' => 'pending',
     ];
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function freelancer() {
+        return $this->belongsTo(User::class, 'freelancer_id');
+    }
 }
