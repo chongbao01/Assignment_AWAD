@@ -5,84 +5,32 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class ProjectSeeder extends Seeder
 {
     public function run()
     {
+        $faker = Faker::create();
+
         Project::unguard();
+
         // Clear existing projects
         DB::statement('SET FOREIGN_KEY_CHECKS=0;'); // Disable foreign key checks
-        Project::truncate(); // Truncate the bids table
+        Project::truncate(); // Truncate the projects table
         DB::statement('SET FOREIGN_KEY_CHECKS=1;'); // Enable foreign key checks
-        // Create new projects
-        Project::create([
-            'owner_id' => 1,
-            'freelancer_id' => 2,
-            'title' => 'Web Development Project',
-            'description' => 'Build a Laravel-based project management system.',
-            'budget' => 10000,
-            'status' => 'assigned',
-        ]);
-        Project::create([
-            'owner_id' => 2,
-            'freelancer_id' => null,
-            'title' => 'Project 2',
-            'description' => 'Description for project 2',
-            'budget' => 2000,
-        ]);
-        Project::create([
-            'owner_id' => 3,
-            'freelancer_id' => 1,
-            'title' => 'Project 3',
-            'description' => 'Description for project 3',
-            'budget' => 3000,
-            'status' => 'assigned',
 
-        ]);
-        Project::create([
-            'owner_id' => 1,
-            'freelancer_id' => null,
-            'title' => 'Project 4',
-            'description' => 'Description for project 4',
-            'budget' => 4000,
-        ]);
-        Project::create([
-            'owner_id' => 2,
-            'freelancer_id' => 1,
-            'title' => 'Project 5',
-            'description' => 'Description for project 5',
-            'budget' => 5000,
-            'status' => 'assigned',
-
-        ]);
-        Project::create([
-            'owner_id' => 3,
-            'freelancer_id' => 2,
-            'title' => 'Project 6',
-            'description' => 'Description for project 6',
-            'budget' => 6000,
-            'status' => 'assigned',
-
-        ]);
-        Project::create([
-            'owner_id' => 1,
-            'freelancer_id' => 2,
-            'title' => 'Project 7',
-            'description' => 'Description for project 7',
-            'budget' => 7000,
-            'status' => 'assigned',
-
-        ]);
-        Project::create([
-            'owner_id' => 2,
-            'freelancer_id' => 3,
-            'title' => 'Project 8',
-            'description' => 'Description for project 8',
-            'budget' => 8000,
-            'status' => 'assigned',
-
-        ]);
+        // Create 15 new projects with random data
+        for ($i = 0; $i < 15; $i++){
+            Project::create([
+                'owner_id' => $faker->numberBetween(1, 10), // Random owner_id between 1 and 10
+                'freelancer_id' => 0, // Null freelancer_id
+                'title' => $faker->sentence(3), // Random project title
+                'description' => $faker->paragraph, // Random project description
+                'budget' => $faker->numberBetween(1000, 10000), // Random budget between 1000 and 10000
+                'status' => 'open', // All projects with 'open' status
+            ]);
+        }
 
         Project::reguard();
     }

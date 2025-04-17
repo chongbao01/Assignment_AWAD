@@ -37,34 +37,34 @@ class BidSeeder extends Seeder
 
         Bid::create([
             'project_id' => 4,
-            'freelancer_id' => 4,
+            'freelancer_id' => 7,
             'bid_amount' => 8000,
             'msg' => 'I can deliver high-quality work.',
         ]);
 
         Bid::create([
             'project_id' => 3,
-            'freelancer_id' => 2,
+            'freelancer_id' => 4,
             'bid_amount' => 9000,
             'msg' => 'I am available to start immediately.',
         ]);
 
         Bid::create([
-            'project_id' => 3,
-            'freelancer_id' => 3,
+            'project_id' => 6,
+            'freelancer_id' => 6,
             'bid_amount' => 10000,
             'msg' => 'I have a strong portfolio in this area.',
         ]);
 
         Bid::create([
-            'project_id' => 4,
-            'freelancer_id' => 1,
+            'project_id' => 8,
+            'freelancer_id' => 8,
             'bid_amount' => 11000,
             'msg' => 'I can work within your budget.',
         ]);
         
         Bid::create([
-            'project_id' => 4,
+            'project_id' => 7,
             'freelancer_id' => 4,
             'bid_amount' => 12000,
             'msg' => 'I have a proven track record of success.',
@@ -72,21 +72,21 @@ class BidSeeder extends Seeder
 
         Bid::create([
             'project_id' => 5,
-            'freelancer_id' => 2,
+            'freelancer_id' => 7,
             'bid_amount' => 13000,
             'msg' => 'I am committed to delivering quality work.',
         ]);
 
         Bid::create([
             'project_id' => 5,
-            'freelancer_id' => 3,
+            'freelancer_id' => 10,
             'bid_amount' => 14000,
             'msg' => 'I can provide references upon request.',
         ]);
 
         Bid::create([
             'project_id' => 5,
-            'freelancer_id' => 1,
+            'freelancer_id' => 9,
             'bid_amount' => 15000,
             'msg' => 'I am passionate about this project.',
         ]);

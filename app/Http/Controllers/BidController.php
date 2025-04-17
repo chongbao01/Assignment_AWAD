@@ -56,6 +56,12 @@ class BidController extends Controller
     }
 
     public function edit(Bid $bid) {
+
+        //Prevent editing bid_amount and message if the bid is accepted or rejected by boss
+        if(in_array($bid->status, ['accepted', 'rejected'])){
+            return redirect()->back()->with('error', 'You cannot edit a bid that has been accepted or rejected!');
+        }
+
         return view('freelancer.edit_bid', compact('bid'));
     }
 
@@ -64,7 +70,7 @@ class BidController extends Controller
             'bid_amount' => $request->bid_amount,
             'msg' => $request->msg,
         ]);
-        return redirect()->route('freelancer.bids', ['user' => $bid->freelancer_id]);
+        return redirect()->route('freelancer.bids', ['user' => $bid->freelancer_id])->with('success', 'Bid updated successfully!');
     }
 
     public function assign(Bid $bid) {

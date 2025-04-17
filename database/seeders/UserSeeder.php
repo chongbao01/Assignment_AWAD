@@ -10,89 +10,88 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'John Doe',
-            'email' => 'johndoe@example.com',
-            'password' => Hash::make('password123'),
-            'bio' => 'Experienced Laravel Developer',
-            'skill' => 'Laravel, PHP, MySQL',
+            'name' => 'Kevin Hart',
+            'email' => 'kevinhart@example.com',
+            'password' => Hash::make('kevinsecure'),
+            'bio' => 'Comedian and Actor',
+            'skill' => 'CEO of Laugh Factory'
         ]);
         User::create([
-            'id' => 2, // Freelancer
-            'name' => 'Jane Smith',
-            'email' => 'janesmith@example.com',
-            'password' => Hash::make('securepass'),
-            'bio' => 'Frontend Engineer',
-            'skill' => 'Vue, React, Tailwind',
+            'name' => 'Laura Adams',
+            'email' => 'lauraadams@example.com',
+            'password' => Hash::make('laurapass'),
+            'bio' => 'Digital Marketer',
+            'skill' => 'Director of Marketing Solutions'
         ]);
         User::create([
-            'name' => 'Alice Johnson',
-            'email' => 'alicejohnson@example.com',
-            'password' => Hash::make('alicepass'),
-            'bio' => 'Backend Developer',
-            'skill' => 'Node.js, Express, MongoDB',
+            'name' => 'Michael Scott',
+            'email' => 'michaelscott@example.com',
+            'password' => Hash::make('michael123'),
+            'bio' => 'Regional Manager',
+            'skill' => 'CEO of Dunder Mifflin'
         ]);
         User::create([
-            'name' => 'Bob Williams',
-            'email' => 'bobwilliams@example.com',
-            'password' => Hash::make('bobsecure'),
-            'bio' => 'Full Stack Developer',
-            'skill' => 'Angular, Laravel, PostgreSQL',
+            'name' => 'Nancy Drew',
+            'email' => 'nancydrew@example.com',
+            'password' => Hash::make('nancysecure'),
+            'bio' => 'Detective',
+            'skill' => 'Python, JavaScript',
         ]);
         User::create([
-            'name' => 'Charlie Brown',
-            'email' => 'charliebrown@example.com',
-            'password' => Hash::make('charlie123'),
-            'bio' => 'Mobile App Developer',
-            'skill' => 'Flutter, Dart, Firebase',
+            'name' => 'Oscar Wilde',
+            'email' => 'oscarwilde@example.com',
+            'password' => Hash::make('oscarpass'),
+            'bio' => 'Writer and Poet',
+            'skill' => 'Director of Literary Arts',
         ]);
         User::create([
-            'name' => 'Diana Prince',
-            'email' => 'dianaprince@example.com',
-            'password' => Hash::make('wonderwoman'),
-            'bio' => 'UI/UX Designer',
-            'skill' => 'Figma, Sketch, Adobe XD',
+            'name' => 'Pam Beesly',
+            'email' => 'pambeesly@example.com',
+            'password' => Hash::make('pamsecure'),
+            'bio' => 'Graphic Designer',
+            'skill' => 'Java, C++',
         ]);
         User::create([
-            'name' => 'Ethan Hunt',
-            'email' => 'ethanhunt@example.com',
-            'password' => Hash::make('mission123'),
-            'bio' => 'DevOps Engineer',
-            'skill' => 'Docker, Kubernetes, AWS',
+            'name' => 'Quincy Jones',
+            'email' => 'quincyjones@example.com',
+            'password' => Hash::make('quincy123'),
+            'bio' => 'Music Producer',
+            'skill' => 'CEO of Music World',
         ]);
         User::create([
-            'name' => 'Fiona Gallagher',
-            'email' => 'fionagallagher@example.com',
-            'password' => Hash::make('fionapass'),
-            'bio' => 'Data Scientist',
-            'skill' => 'Python, R, TensorFlow',
+            'name' => 'Rachel Green',
+            'email' => 'rachelgreen@example.com',
+            'password' => Hash::make('rachelpass'),
+            'bio' => 'Fashion Designer',
+            'skill' => 'Director of Fashion Inc.',
         ]);
         User::create([
-            'name' => 'George Martin',
-            'email' => 'georgemartin@example.com',
-            'password' => Hash::make('georgepass'),
-            'bio' => 'Game Developer',
-            'skill' => 'Unity, C#, Unreal Engine',
+            'name' => 'Steve Rogers',
+            'email' => 'steverogers@example.com',
+            'password' => Hash::make('captain123'),
+            'bio' => 'Super Soldier',
+            'skill' => 'C#, PHP',
         ]);
         User::create([
-            'name' => 'Hannah Lee',
-            'email' => 'hannahlee@example.com',
-            'password' => Hash::make('hannahsecure'),
-            'bio' => 'AI Engineer',
-            'skill' => 'Machine Learning, AI, Python',
+            'name' => 'Tina Fey',
+            'email' => 'tinafey@example.com',
+            'password' => Hash::make('tinafey123'),
+            'bio' => 'Comedian and Writer',
+            'skill' => 'CEO of Comedy Writers',
         ]);
         User::create([
-            'name' => 'Ian Wright',
-            'email' => 'ianwright@example.com',
-            'password' => Hash::make('ianwright123'),
-            'bio' => 'Cybersecurity Specialist',
-            'skill' => 'Penetration Testing, Network Security, Cryptography',
+            'name' => 'Uma Thurman',
+            'email' => 'umathurman@example.com',
+            'password' => Hash::make('umapass'),
+            'bio' => 'Actress',
+            'skill' => 'JavaScript, Ruby',
         ]);
         User::create([
-            'name' => 'Julia Roberts',
-            'email' => 'juliaroberts@example.com',
-            'password' => Hash::make('juliaroberts'),
-            'bio' => 'Cloud Architect',
-            'skill' => 'Azure, AWS, Google Cloud',
-        ]);
+            'name' => 'Victor Hugo',
+            'email' => 'victorhugo@example.com',
+            'password' => Hash::make('victorpass'),
+            'bio' => 'Novelist and Poet',
+            'skill' => 'Director of Literary Works',
+        ]); 
     }
 }
