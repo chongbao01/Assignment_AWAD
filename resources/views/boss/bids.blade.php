@@ -22,7 +22,7 @@
             @elseif($bid->status === 'accepted')
                 <span style="color:green; font-weight: bold">Accepted</span>
             @else
-                <span style="color:blue; font-weight: bold">Pending</span>
+                <!-- <span style="color:blue; font-weight: bold">Pending</span> -->
             @endif
         </p>
         @endif
