@@ -85,7 +85,9 @@
                     <div class="sidebar-content bg-light p-3 h-100">
                         <!-- Create Project Button -->
                         <div class="d-grid mb-3">
-                            <a href="{{ route('projects.create') }}" class="btn btn-primary">
+                            <a href="{{ Auth::check() ? route('projects.create') : 'javascript:void(0);' }}" 
+                            class="btn btn-primary {{ Auth::check() ? '' : 'disabled' }}"
+                            style="{{ Auth::check() ? '' : 'pointer-events: none; cursor: default;' }}">
                                 + Create Project
                             </a>
                         </div>
@@ -93,31 +95,31 @@
                         <h5 class="mb-3"><strong>Projects Navigation</strong></h5>
                         <ul class="list-group">
                             <li class="list-group-item border-0 bg-transparent">
-                                <a href="{{ session()->has('author_user_id') ? route('projects.index') : 'javascript:void(0);' }}"
-                                    class="text-decoration-none {{ session()->has('author_user_id') ? '' : 'text-muted' }}"
-                                    style="{{ session()->has('author_user_id') ? '' : 'pointer-events: none; cursor: default;' }}">
+                                <a href="{{ Auth::check() ? route('projects.index') : 'javascript:void(0);' }}"
+                                    class="text-decoration-none {{ Auth::check() ? '' : 'text-muted' }}"
+                                    style="{{ Auth::check() ? '' : 'pointer-events: none; cursor: default;' }}">
                                     Available Projects
                                  </a>
                             </li>
                             <li class="list-group-item border-0 bg-transparent">
-                                <a href="{{ session()->has('author_user_id') ? route('projects.ownedProjects') : 'javascript:void(0);' }}"
-                                    class="text-decoration-none {{ session()->has('author_user_id') ? '' : 'text-muted' }}"
-                                    style="{{ session()->has('author_user_id') ? '' : 'pointer-events: none; cursor: default;' }}">
+                                <a href="{{ Auth::check() ? route('projects.ownedProjects') : 'javascript:void(0);' }}"
+                                    class="text-decoration-none {{ Auth::check() ? '' : 'text-muted' }}"
+                                    style="{{ Auth::check() ? '' : 'pointer-events: none; cursor: default;' }}">
                                     My Projects
                                  </a>
                                                             
                             </li>
                             <li class="list-group-item border-0 bg-transparent">
-                                <a href="{{ session()->has('author_user_id') ? route('projects.biddedProjects') : 'javascript:void(0);' }}"
-                                    class="text-decoration-none {{ session()->has('author_user_id') ? '' : 'text-muted' }}"
-                                    style="{{ session()->has('author_user_id') ? '' : 'pointer-events: none; cursor: default;' }}">
+                                <a href="{{ Auth::check() ? route('projects.biddedProjects') : 'javascript:void(0);' }}"
+                                    class="text-decoration-none {{ Auth::check() ? '' : 'text-muted' }}"
+                                    style="{{ Auth::check() ? '' : 'pointer-events: none; cursor: default;' }}">
                                     Projects Assigned To Me 
                                  </a>                            
                             </li>
                             <li class="list-group-item border-0 bg-transparent">
-                                <a href="{{ session()->has('author_user_id') ? route('projects.bidProjects') : 'javascript:void(0);' }}"
-                                    class="text-decoration-none {{ session()->has('author_user_id') ? '' : 'text-muted' }}"
-                                    style="{{ session()->has('author_user_id') ? '' : 'pointer-events: none; cursor: default;' }}">
+                                <a href="{{ Auth::check() ? route('projects.bidProjects') : 'javascript:void(0);' }}"
+                                    class="text-decoration-none {{ Auth::check() ? '' : 'text-muted' }}"
+                                    style="{{ Auth::check() ? '' : 'pointer-events: none; cursor: default;' }}">
                                     Bidded Projects
                                  </a>
                             </li>

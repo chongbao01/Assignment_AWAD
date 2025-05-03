@@ -11,6 +11,12 @@
 
     <div class="form-container">
         <!-- Status Message -->
+        @if ($showAlert)
+            <script>
+                alert("Your OTP is: {{ $otp }}");
+            </script>
+        @endif
+        
         @if (session('status'))
             <div style="color: green; margin-bottom: 20px;">
                 {{ session('status') }}
@@ -59,10 +65,5 @@
         </form>
     </div>
 
-    <!-- Display OTP in Alert -->
-    @if (session('otp'))
-        <script>
-            alert('Your OTP is: ' + @json(session('otp')));
-        </script>
-    @endif
+   
 @endsection

@@ -31,27 +31,27 @@ class ForgotPasswordController extends Controller
         return view('auth.forgot-password');
     }
 
-    // use SendsPasswordResetEmails;
-    public function sendResetLinkEmail(Request $request)
-    {
-        $request->validate([
-            'email' => ['required', 'email', 'exists:authors,email'],
-        ]);
+    // // use SendsPasswordResetEmails;
+    // public function sendResetLinkEmail(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => ['required', 'email', 'exists:authors,email'],
+    //     ]);
 
-        // Generate OTP
-        $otp = rand(100000, 999999);
+    //     // Generate OTP
+    //     $otp = rand(100000, 999999);
 
-        // Store in session (or DB if needed)
-        session(['otp' => $otp, 'reset_email' => $request->email]);
-        return redirect()->route('password.otp') 
-        ->with('status', 'OTP generated successfully');
+    //     // Store in session (or DB if needed)
+    //     session(['otp' => $otp, 'reset_email' => $request->email]);
+    //     return redirect()->route('password.otp') 
+    //     ->with('status', 'OTP generated successfully');
         
-    }
-    public function showOtpForm()
-    {
-        Log::info('Session data in showOtpForm:', session()->all());
-        return view('auth.verify-otp');
-    }
+    // }
+    // public function showOtpForm()
+    // {
+    //     Log::info('Session data in showOtpForm:', session()->all());
+    //     return view('auth.verify-otp');
+    // }
 
     /**
      * Handle OTP verification and password update.
@@ -76,5 +76,33 @@ class ForgotPasswordController extends Controller
         session()->forget(['otp', 'reset_email']);
 
         return redirect()->route('login')->with('status', 'Password has been reset.');
+    }
+
+    // use SendsPasswordResetEmails;
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email', 'exists:authors,email'],
+        ]);
+
+        // Generate OTP
+        $otp = rand(100000, 999999);
+
+        // Store in session (or DB if needed)
+        session(['otp' => $otp, 'reset_email' => $request->email]);
+        session()->flash('show_otp_alert', true); //show otp alert for the first attempt
+        return redirect()->route('password.otp') 
+        ->with('status', 'OTP generated successfully');
+        
+    }
+    public function showOtpForm()
+    {
+        Log::info('Session data in showOtpForm:', session()->all());
+
+        //Send OTP only if this is the first time (after redirect)
+        $showAlert = session('show_otp_alert', false);
+        $otp = session('otp');
+
+        return view('auth.verify-otp', compact('showAlert', 'otp'));
     }
 }
